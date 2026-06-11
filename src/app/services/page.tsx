@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SectionImage } from "@/components/ui/SectionImage";
 import { ServiceCard } from "@/components/services/ServiceCard";
 import { SERVICES, SITE } from "@/lib/constants";
@@ -44,7 +45,13 @@ export default function ServicesPage() {
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
+          <SectionHeading
+            eyebrow="What We Offer"
+            title="Professional Maintenance Services"
+            description="Trusted technicians for AC, electrical, plumbing, and complete property care across Dubai."
+          />
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-7 lg:grid-cols-3 lg:gap-8">
             {SERVICES.map((service) => (
               <ServiceCard key={service.slug} service={service} />
             ))}

@@ -65,7 +65,29 @@ body {
   left: auto;
   top: auto;
   z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  min-width: 3.5rem;
+  max-width: 3.5rem;
   margin: 0;
+  padding: 0;
+  border-radius: 9999px;
+  background-color: #25d366;
+  color: #ffffff;
+  box-shadow:
+    0 10px 25px -5px rgba(37, 211, 102, 0.45),
+    0 8px 10px -6px rgba(0, 0, 0, 0.2);
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.whatsapp-float:hover {
+  background-color: #1da851;
+  transform: scale(1.05);
 }
 
 @media (hover: none) {

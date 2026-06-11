@@ -42,10 +42,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${dmSans.variable} h-full scroll-smooth`}>
-      <body className="min-h-full flex flex-col antialiased bg-white text-neutral-900 overflow-x-clip">
-        <Header />
-        <main className="grow min-w-0">{children}</main>
-        <Footer />
+      <body className="min-h-full antialiased bg-white text-neutral-900 overflow-x-clip">
+        <div className="flex min-h-full flex-col">
+          <Header />
+          <main className="grow min-w-0">{children}</main>
+          <Footer />
+        </div>
         <WhatsAppFloat />
       </body>
     </html>

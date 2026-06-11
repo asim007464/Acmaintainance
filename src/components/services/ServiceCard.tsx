@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Star } from "lucide-react";
+import { Check } from "lucide-react";
 import { type Service } from "@/lib/constants";
 import { SERVICE_IMAGES } from "@/lib/images";
 import { getServiceWhatsAppLink } from "@/lib/utils";
@@ -10,13 +10,14 @@ export function ServiceCard({ service }: { service: Service }) {
   const isPrimary = service.slug === "hvac-maintenance";
   const imageSrc =
     SERVICE_IMAGES[service.slug] ?? SERVICE_IMAGES["hvac-maintenance"];
+  const highlights = service.features.slice(0, 4);
 
   return (
     <article
-      className={`relative flex h-full flex-col overflow-hidden rounded-2xl border bg-white card-hover ${
+      className={`group relative flex h-full flex-col overflow-hidden rounded-2xl bg-white transition-all duration-300 ${
         isPrimary
-          ? "border-2 border-red-600 ring-4 ring-red-100"
-          : "border-neutral-200"
+          ? "shadow-lg ring-1 ring-red-200/80 hover:shadow-xl"
+          : "shadow-sm ring-1 ring-neutral-200/80 hover:shadow-lg hover:ring-neutral-300/80"
       }`}
     >
       <Link
@@ -25,38 +26,56 @@ export function ServiceCard({ service }: { service: Service }) {
         aria-label={`View ${service.title} details`}
       />
 
-      <div className="pointer-events-none relative z-1">
-        <div className="relative h-48 sm:h-52 overflow-hidden bg-neutral-100">
-          <Image
-            src={imageSrc}
-            alt={service.title}
-            fill
-            className="object-cover transition-transform duration-500 hover:scale-105"
-            sizes="(max-width: 768px) 100vw, 400px"
-          />
-          {isPrimary && (
-            <span className="absolute top-4 right-4 inline-flex items-center gap-1.5 rounded-full bg-red-600 px-3 py-1 text-xs font-bold text-white shadow-lg">
-              <Star className="h-3 w-3 fill-white" />
-              Our Specialty
-            </span>
-          )}
-        </div>
+      {isPrimary && (
+        <div className="h-1 shrink-0 bg-gradient-to-r from-red-700 via-red-600 to-red-400" />
+      )}
 
-        <div className="flex flex-1 flex-col p-5 sm:p-6">
-          <h3 className="mb-2 text-lg font-bold text-neutral-900 sm:mb-3 sm:text-xl">
-            {service.title}
-          </h3>
-          <p className="mb-5 flex-1 text-sm leading-relaxed text-neutral-600 sm:mb-6 sm:text-base">
-            {service.shortDescription}
-          </p>
-        </div>
+      <div className="relative z-1 aspect-4/3 w-full shrink-0 overflow-hidden bg-neutral-100 sm:aspect-[5/4]">
+        <Image
+          src={imageSrc}
+          alt={service.title}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, 400px"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
       </div>
 
-      <div className="pointer-events-none relative z-20 mt-auto border-t border-neutral-100 px-5 py-4 sm:px-6 sm:py-5">
-        <WhatsAppButton
-          href={getServiceWhatsAppLink(service.title)}
-          className="pointer-events-auto"
-        />
+      <div className="pointer-events-none relative z-1 flex flex-1 flex-col p-5 sm:p-6">
+        {isPrimary && (
+          <p className="mb-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-red-600">
+            Our #1 Specialty
+          </p>
+        )}
+
+        <h3 className="mb-2 text-lg font-bold leading-snug text-neutral-900">
+          {service.title}
+        </h3>
+
+        <p className="mb-4 text-sm leading-relaxed text-neutral-600">
+          {service.shortDescription}
+        </p>
+
+        <ul className="mb-5 flex-1 space-y-2">
+          {highlights.map((feature) => (
+            <li
+              key={feature}
+              className="flex items-start gap-2 text-xs leading-relaxed text-neutral-700 sm:text-sm"
+            >
+              <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-red-600" />
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-auto border-t border-neutral-100 pt-4">
+          <WhatsAppButton
+            href={getServiceWhatsAppLink(service.title)}
+            size="md"
+            fullWidth={false}
+            className="pointer-events-auto relative z-20"
+          />
+        </div>
       </div>
     </article>
   );
