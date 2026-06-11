@@ -1,26 +1,98 @@
 @import "tailwindcss";
 
 :root {
+  --brand: #d32f2f;
+  --brand-light: #e53935;
+  --brand-dark: #b71c1c;
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #111111;
+  --muted: #616161;
+  --card: #ffffff;
+  --border: #e0e0e0;
+  --surface: #f5f5f5;
 }
 
 @theme inline {
+  --color-brand: #d32f2f;
+  --color-brand-light: #e53935;
+  --color-brand-dark: #b71c1c;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-surface: var(--surface);
+  --font-sans: var(--font-dm-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+  overflow-x: clip;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  color: #111111;
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  overflow-x: clip;
+}
+
+.gradient-hero-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.55) 45%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+}
+
+@media (min-width: 640px) {
+  .gradient-hero-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.82) 0%,
+      rgba(0, 0, 0, 0.55) 55%,
+      rgba(0, 0, 0, 0.35) 100%
+    );
+  }
+}
+
+.whatsapp-float {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right, 0px));
+  bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+  left: auto;
+  top: auto;
+  z-index: 9999;
+  margin: 0;
+}
+
+@media (hover: none) {
+  .card-hover:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+.bg-brand-red {
+  background-color: #d32f2f;
+}
+
+.bg-section-dark {
+  background-color: #1a1a1a;
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.15);
+}
+
+.pattern-grid {
+  background-image: radial-gradient(circle, #e0e0e0 1px, transparent 1px);
+  background-size: 24px 24px;
 }
