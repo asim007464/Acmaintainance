@@ -1,4 +1,5 @@
 import {
+  Camera,
   Wind,
   Zap,
   LayoutGrid,
@@ -20,6 +21,7 @@ import {
 
 const iconMap: Record<string, LucideIcon> = {
   wind: Wind,
+  camera: Camera,
   zap: Zap,
   layout: LayoutGrid,
   paintbrush: Paintbrush,

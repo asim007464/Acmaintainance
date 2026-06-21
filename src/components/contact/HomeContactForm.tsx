@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { Send } from "lucide-react";
-import { SERVICES } from "@/lib/constants";
+import { SERVICES, SITE } from "@/lib/constants";
 import { getWhatsAppLink } from "@/lib/utils";
 
 export function HomeContactForm() {
@@ -92,7 +92,7 @@ export function HomeContactForm() {
           <input
             id="home-phone"
             type="tel"
-            placeholder="+971 XX XXX XXXX"
+            placeholder={SITE.phone}
             required
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}

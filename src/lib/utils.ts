@@ -7,7 +7,7 @@ export function getWhatsAppLink(message?: string): string {
 
 export function getServiceWhatsAppLink(serviceName: string): string {
   return getWhatsAppLink(
-    `Hello! I would like to book ${serviceName} with Right Zone Technical Services.`
+    `Hello! I would like to book ${serviceName} with ${SITE.name}.`
   );
 }
 

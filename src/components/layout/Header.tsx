@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
-import { SITE, SERVICES } from "@/lib/constants";
+import { Menu, X, ChevronDown, Phone } from "lucide-react";
+import { SERVICES, SITE } from "@/lib/constants";
 import { Button } from "@/components/ui/Button";
+import { Logo } from "@/components/layout/Logo";
+import { getPhoneLink, getWhatsAppLink } from "@/lib/utils";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -43,17 +45,7 @@ export function Header() {
     <header className="sticky top-0 z-50 bg-white border-b border-neutral-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-[72px] gap-3">
-          <Link href="/" className="flex items-center gap-2 sm:gap-3 min-w-0 shrink">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 lg:w-11 lg:h-11 rounded-lg bg-neutral-900 flex items-center justify-center shrink-0">
-              <span className="text-red-600 font-black text-lg sm:text-xl">R</span>
-            </div>
-            <div className="min-w-0 leading-tight">
-              <p className="font-bold text-red-600 text-xs sm:text-sm truncate">{SITE.shortName}</p>
-              <p className="text-[9px] sm:text-[10px] text-neutral-500 uppercase tracking-wide truncate">
-                Technical Services LLC
-              </p>
-            </div>
-          </Link>
+          <Logo />
 
           <nav className="hidden lg:flex items-center gap-2">
             {navLinks.map((link) =>
@@ -98,7 +90,14 @@ export function Header() {
             )}
           </nav>
 
-          <div className="hidden lg:block shrink-0">
+          <div className="hidden lg:flex items-center gap-4 shrink-0">
+            <a
+              href={getPhoneLink()}
+              className="hidden xl:flex items-center gap-2 text-sm font-semibold text-neutral-900 hover:text-red-600 transition-colors"
+            >
+              <Phone className="w-4 h-4 shrink-0" />
+              {SITE.phone}
+            </a>
             <Button href="/contact" variant="primary" size="sm">
               Get A Quote
             </Button>
@@ -164,7 +163,22 @@ export function Header() {
                 </Link>
               )
             )}
-            <div className="pt-4">
+            <div className="pt-4 space-y-3">
+              <a
+                href={getPhoneLink()}
+                className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-semibold text-neutral-900 border border-neutral-200 hover:border-red-600 hover:text-red-600 transition-colors"
+              >
+                <Phone className="w-4 h-4 shrink-0" />
+                {SITE.phone}
+              </a>
+              <a
+                href={getWhatsAppLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-semibold text-white bg-[#25D366] hover:bg-[#1da851] transition-colors"
+              >
+                Chat on WhatsApp
+              </a>
               <Button href="/contact" variant="primary" size="md" className="w-full">
                 Get A Quote
               </Button>

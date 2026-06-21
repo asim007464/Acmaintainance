@@ -4,6 +4,7 @@ import { SITE } from "@/lib/constants";
 import { getPhoneLink, getEmailLink } from "@/lib/utils";
 import { CTASection } from "@/components/home/CTASection";
 import { SocialIcon } from "@/components/icons/SocialIcon";
+import { Logo } from "@/components/layout/Logo";
 
 export function Footer() {
   return (
@@ -44,6 +45,9 @@ export function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 divide-y md:divide-y-0 md:divide-x divide-white/10">
             <div className="pb-8 md:pb-0 md:pr-10 text-center md:text-left">
+              <div className="mb-6 flex justify-center md:justify-start">
+                <Logo variant="light" />
+              </div>
               <p className="text-white/70 text-sm leading-relaxed mb-6">
                 For expert AC maintenance and reliable solutions, reach out to{" "}
                 {SITE.shortName}. We&apos;re here to help!

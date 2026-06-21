@@ -60,7 +60,7 @@ export default function ContactPage() {
             <div className="lg:col-span-1 space-y-6">
               <SectionImage
                 src={IMAGES.contact}
-                alt="Contact Right Zone technical services"
+                alt="Contact AQ AC Experts"
                 aspect="portrait"
                 className="mb-2"
               />

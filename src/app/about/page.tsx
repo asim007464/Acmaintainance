@@ -57,7 +57,7 @@ export default function AboutPage() {
                 align="left"
               />
               <p className="text-neutral-600 text-base sm:text-lg leading-relaxed mb-6">
-                Right Zone Technical Services LLC has been keeping Dubai cool for over
+                AQ AC Experts has been keeping Dubai cool for over
                 a decade. AC maintenance is our core expertise — from split units and
                 central systems to commercial chillers — backed by certified technicians
                 and same-day emergency service.
@@ -102,7 +102,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionImage
             src={IMAGES.team}
-            alt="Right Zone technical services team"
+            alt="AQ AC Experts team"
             aspect="wide"
             overlay={
               <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent flex items-center">

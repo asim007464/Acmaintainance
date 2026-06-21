@@ -1,8 +1,10 @@
 import Image from "next/image";
+import { Phone } from "lucide-react";
 import { SITE } from "@/lib/constants";
 import { IMAGES } from "@/lib/images";
 import { Button } from "@/components/ui/Button";
 import { ReviewAvatars } from "@/components/ui/ReviewAvatars";
+import { getPhoneLink, getWhatsAppLink } from "@/lib/utils";
 
 export function Hero() {
   return (
@@ -12,7 +14,7 @@ export function Hero() {
         alt="AC maintenance technician at work"
         fill
         priority
-        className="object-cover object-center"
+        className="object-cover object-top"
         sizes="100vw"
       />
       <div className="absolute inset-0 gradient-hero-overlay" />
@@ -29,13 +31,31 @@ export function Hero() {
             {SITE.heroDescription}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8">
             <Button href="/contact" variant="primary" size="lg" className="w-full sm:w-auto">
               Get A Quote
             </Button>
             <Button href="/about" variant="outline-dark" size="lg" className="w-full sm:w-auto">
               Learn More
             </Button>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12">
+            <a
+              href={getPhoneLink()}
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/30 text-white text-sm font-semibold rounded-full hover:bg-white hover:text-neutral-900 transition-colors w-full sm:w-auto"
+            >
+              <Phone className="w-4 h-4 shrink-0" />
+              {SITE.phone}
+            </a>
+            <a
+              href={getWhatsAppLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#25D366] text-white text-sm font-semibold rounded-full hover:bg-[#1da851] transition-colors w-full sm:w-auto"
+            >
+              WhatsApp Us
+            </a>
           </div>
 
           <ReviewAvatars />

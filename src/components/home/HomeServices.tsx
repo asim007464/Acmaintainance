@@ -1,26 +1,26 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Check } from "lucide-react";
-import { HOME_AC_HIGHLIGHTS } from "@/lib/constants";
-import { HOME_AC_IMAGES } from "@/lib/images";
+import { HOME_FEATURED_SERVICES } from "@/lib/constants";
+import { HOME_FEATURED_IMAGES } from "@/lib/images";
 import { getServiceWhatsAppLink } from "@/lib/utils";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 
-const AC_HIGHLIGHT_BULLETS: Record<string, string[]> = {
-  "ac-servicing": [
-    "Routine tune-ups & filter changes",
-    "Fault diagnosis for all AC types",
-    "Same-day servicing across Dubai",
+const FEATURED_BULLETS: Record<string, string[]> = {
+  "ac-maintenance": [
+    "AC repair, servicing & installation",
+    "New AC unit installation",
+    "Same-day service across Dubai",
   ],
-  "ac-emergency": [
-    "24/7 emergency callouts",
-    "Fast same-day breakdown repairs",
-    "Certified technicians on standby",
+  electrical: [
+    "Wiring & lighting installations",
+    "Safety inspections & certifications",
+    "Emergency electrical repairs",
   ],
-  "ac-cleaning": [
-    "Deep coil & duct cleaning",
-    "Gas refill & leak detection",
-    "Improved airflow & efficiency",
+  "cctv-smart-home": [
+    "CCTV camera installation",
+    "Smart home automation",
+    "Remote monitoring setup",
   ],
 };
 
@@ -32,17 +32,17 @@ export function HomeServices() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
             <div>
               <p className="text-white/80 text-sm font-semibold tracking-widest uppercase mb-4">
-                Our Specialty
+                Our Services
               </p>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
-                Complete AC Maintenance Solutions
+                AC, Electrical & Smart Home Solutions
               </h2>
             </div>
             <div className="lg:border-l lg:border-white/25 lg:pl-12">
               <p className="text-white/85 leading-relaxed">
-                AC maintenance is what we do best. From routine servicing to
-                emergency breakdowns and deep cleaning, Right Zone keeps homes and
-                businesses across Dubai cool, efficient, and comfortable.
+                AQ AC Experts delivers trusted AC maintenance, professional electrical
+                work, and CCTV & smart home installations — keeping homes and
+                businesses across Dubai cool, safe, and connected.
               </p>
             </div>
           </div>
@@ -51,21 +51,21 @@ export function HomeServices() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 sm:-mt-20 lg:-mt-28 relative z-10">
         <div className="grid gap-6 sm:grid-cols-2 sm:gap-7 lg:grid-cols-3 lg:gap-8">
-          {HOME_AC_HIGHLIGHTS.map((highlight) => (
+          {HOME_FEATURED_SERVICES.map((service) => (
             <article
-              key={highlight.id}
+              key={service.id}
               className="group relative flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-neutral-200/80 transition-all duration-300 hover:shadow-xl"
             >
               <Link
-                href={`/services/${highlight.slug}`}
+                href={`/services/${service.slug}`}
                 className="absolute inset-0 z-10 rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2"
-                aria-label={`View ${highlight.title} details`}
+                aria-label={`View ${service.title} details`}
               />
 
               <div className="relative aspect-4/3 w-full shrink-0 overflow-hidden bg-neutral-100 sm:aspect-[5/4]">
                 <Image
-                  src={HOME_AC_IMAGES[highlight.id]}
-                  alt={highlight.title}
+                  src={HOME_FEATURED_IMAGES[service.id]}
+                  alt={service.title}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 400px"
@@ -75,17 +75,17 @@ export function HomeServices() {
 
               <div className="pointer-events-none flex flex-1 flex-col p-5 sm:p-6">
                 <p className="mb-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-red-600">
-                  AC Service
+                  {service.category}
                 </p>
                 <h3 className="mb-2 text-lg font-bold text-neutral-900">
-                  {highlight.title}
+                  {service.title}
                 </h3>
                 <p className="mb-4 text-sm leading-relaxed text-neutral-600">
-                  {highlight.shortDescription}
+                  {service.shortDescription}
                 </p>
 
                 <ul className="mb-5 flex-1 space-y-2">
-                  {(AC_HIGHLIGHT_BULLETS[highlight.id] ?? []).map((item) => (
+                  {(FEATURED_BULLETS[service.id] ?? []).map((item) => (
                     <li
                       key={item}
                       className="flex items-start gap-2 text-xs leading-relaxed text-neutral-700 sm:text-sm"
@@ -98,7 +98,7 @@ export function HomeServices() {
 
                 <div className="mt-auto border-t border-neutral-100 pt-4">
                   <WhatsAppButton
-                    href={getServiceWhatsAppLink(highlight.title)}
+                    href={getServiceWhatsAppLink(service.title)}
                     size="md"
                     fullWidth={false}
                     className="pointer-events-auto relative z-20"

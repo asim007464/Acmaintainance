@@ -1,11 +1,11 @@
 export const SITE = {
-  name: "Right Zone Technical Services LLC",
-  shortName: "Right Zone",
-  tagline: "Trusted Experts in AC Maintenance Since 2014",
+  name: "AQ AC Experts",
+  shortName: "AQ AC Experts",
+  tagline: "Trusted AC Experts in Dubai Since 2014",
   heroDescription:
     "Your one-stop solution for AC maintenance, HVAC, electrical, painting, carpentry, and more. We combine innovation, quality, and reliability to keep your spaces cool and comfortable.",
-  phone: "+971 52 2432906",
-  phoneRaw: "971522432906",
+  phone: "+971 56 257 2186",
+  phoneRaw: "971562572186",
   email: "info@rztechservices.com",
   emailAlt: "support@rztechservices.com",
   address: "8, Union Coop, Al Quoz 1, Dubai (UAE)",
@@ -33,7 +33,7 @@ export type Service = {
 export const SERVICES: Service[] = [
   {
     slug: "hvac-maintenance",
-    title: "AC Maintenance",
+    title: "AC Maintenance & Installation",
     shortDescription:
       "Expert AC repair, servicing, and installation — our #1 specialty. Same-day service available across Dubai.",
     description:
@@ -46,6 +46,22 @@ export const SERVICES: Service[] = [
       "24/7 emergency AC repairs",
     ],
     icon: "wind",
+  },
+  {
+    slug: "cctv-smart-home",
+    title: "CCTV & Smart Home Services",
+    shortDescription:
+      "CCTV installation, smart home automation, and security systems for homes and businesses across Dubai.",
+    description:
+      "Protect your property and upgrade your lifestyle with professional CCTV and smart home solutions. We install high-quality surveillance cameras, configure remote monitoring, and integrate smart home devices — giving you peace of mind and modern convenience from one trusted team.",
+    features: [
+      "CCTV camera installation & setup",
+      "Smart home automation systems",
+      "Remote monitoring & mobile access",
+      "Security system integration",
+      "Maintenance & troubleshooting",
+    ],
+    icon: "camera",
   },
   {
     slug: "electrical",
@@ -126,22 +142,6 @@ export const SERVICES: Service[] = [
       "Wood repair & restoration",
     ],
     icon: "hammer",
-  },
-  {
-    slug: "flooring-wall-cladding",
-    title: "Flooring & Wall Cladding",
-    shortDescription:
-      "Premium flooring materials and sleek wall cladding for a polished look.",
-    description:
-      "Upgrade your interiors with premium flooring materials and sleek wall cladding panels. We deliver sophisticated, modern finishes that transform any space into a polished, professional environment.",
-    features: [
-      "Hardwood & laminate flooring",
-      "Tile & marble installation",
-      "Vinyl & SPC flooring",
-      "Wall cladding panels",
-      "Floor leveling & preparation",
-    ],
-    icon: "grid",
   },
   {
     slug: "kitchen-equipment-hood-cleaning",
@@ -243,36 +243,43 @@ export const WHY_US = [
   },
 ];
 
-export type HomeAcHighlight = {
+export type HomeFeaturedService = {
   id: string;
   slug: string;
+  category: string;
   title: string;
   shortDescription: string;
 };
 
-export const HOME_AC_HIGHLIGHTS: HomeAcHighlight[] = [
+export const HOME_FEATURED_SERVICES: HomeFeaturedService[] = [
   {
-    id: "ac-servicing",
+    id: "ac-maintenance",
     slug: "hvac-maintenance",
-    title: "AC Repair & Servicing",
+    category: "AC Experts",
+    title: "AC Maintenance & Installation",
     shortDescription:
-      "Routine tune-ups, filter changes, and fault diagnosis for split, central, and commercial AC — keeping your cooling reliable all year.",
+      "Expert AC repair, servicing, and installation — our #1 specialty. Same-day service available across Dubai.",
   },
   {
-    id: "ac-emergency",
-    slug: "hvac-maintenance",
-    title: "Emergency AC Repairs",
+    id: "cctv-smart-home",
+    slug: "cctv-smart-home",
+    category: "Smart Home",
+    title: "CCTV & Smart Home Services",
     shortDescription:
-      "AC stopped working in the Dubai heat? Our certified technicians respond fast with same-day and 24/7 emergency callouts across the city.",
+      "CCTV cameras, smart home automation, and security systems installed and configured for your peace of mind.",
   },
   {
-    id: "ac-cleaning",
-    slug: "hvac-maintenance",
-    title: "Deep Cleaning & Gas Refill",
+    id: "electrical",
+    slug: "electrical",
+    category: "Electrical",
+    title: "Electrical",
     shortDescription:
-      "Full coil cleaning, duct sanitization, leak detection, and gas top-ups — restore airflow, cut energy bills, and extend your unit's life.",
+      "Professional electrical solutions from fixes to energy-efficient lighting and safety inspections.",
   },
 ];
+
+/** @deprecated Use HOME_FEATURED_SERVICES */
+export const HOME_AC_HIGHLIGHTS = HOME_FEATURED_SERVICES;
 
 export const HIGHLIGHTS = [
   {
