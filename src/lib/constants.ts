@@ -6,8 +6,8 @@ export const SITE = {
     "Your one-stop solution for AC maintenance, HVAC, electrical, painting, carpentry, and more. We combine innovation, quality, and reliability to keep your spaces cool and comfortable.",
   phone: "+971 56 257 2186",
   phoneRaw: "971562572186",
-  email: "info@rztechservices.com",
-  emailAlt: "support@rztechservices.com",
+  email: "Querry@aqacexperts.com",
+  emailAlt: "Send us your questions anytime",
   address: "8, Union Coop, Al Quoz 1, Dubai (UAE)",
   whatsappMessage:
     "Hello! I need AC maintenance service in Dubai. Please share availability and a quote.",

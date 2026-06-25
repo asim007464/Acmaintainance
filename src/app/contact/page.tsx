@@ -10,7 +10,7 @@ import { getPhoneLink, getEmailLink, getWhatsAppLink } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Contact Us",
-  description: `Get in touch with ${SITE.name}. Call ${SITE.phone} or send us a message.`,
+  description: `Get in touch with ${SITE.name}. Call ${SITE.phone} or email ${SITE.email}.`,
 };
 
 const contactInfo = [

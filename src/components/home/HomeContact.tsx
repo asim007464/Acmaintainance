@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Mail } from "lucide-react";
 import { SITE } from "@/lib/constants";
 import { IMAGES } from "@/lib/images";
+import { getEmailLink } from "@/lib/utils";
 import { HomeContactForm } from "@/components/contact/HomeContactForm";
 
 export function HomeContact() {
@@ -24,7 +25,12 @@ export function HomeContact() {
                 </div>
                 <div className="min-w-0">
                   <p className="font-bold text-white text-sm sm:text-base">24/7 Contact Support</p>
-                  <p className="text-white/70 text-xs sm:text-sm truncate">{SITE.email}</p>
+                  <a
+                    href={getEmailLink()}
+                    className="text-white/70 text-xs sm:text-sm truncate block hover:text-white transition-colors"
+                  >
+                    {SITE.email}
+                  </a>
                 </div>
               </div>
             </div>
