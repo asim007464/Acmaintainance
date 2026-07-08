@@ -8,7 +8,7 @@ export const SITE = {
   phoneRaw: "971562572186",
   email: "Querry@aqacexperts.com",
   emailAlt: "Send us your questions anytime",
-  address: "8, Union Coop, Al Quoz 1, Dubai (UAE)",
+  address: "Hamriya, Umme Hurair 2, Dubai, United Arab Emirates",
   whatsappMessage:
     "Hello! I need AC maintenance service in Dubai. Please share availability and a quote.",
   founded: 2014,

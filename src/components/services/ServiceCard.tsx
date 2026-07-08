@@ -14,11 +14,7 @@ export function ServiceCard({ service }: { service: Service }) {
 
   return (
     <article
-      className={`group relative flex h-full flex-col overflow-hidden rounded-2xl bg-white transition-all duration-300 ${
-        isPrimary
-          ? "shadow-lg ring-1 ring-red-200/80 hover:shadow-xl"
-          : "shadow-sm ring-1 ring-neutral-200/80 hover:shadow-lg hover:ring-neutral-300/80"
-      }`}
+      className="group relative flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200/80 transition-all duration-300 hover:shadow-lg hover:ring-neutral-300/80"
     >
       <Link
         href={`/services/${service.slug}`}
@@ -26,28 +22,20 @@ export function ServiceCard({ service }: { service: Service }) {
         aria-label={`View ${service.title} details`}
       />
 
-      {isPrimary && (
-        <div className="h-1 shrink-0 bg-gradient-to-r from-red-700 via-red-600 to-red-400" />
-      )}
-
       <div className="relative z-1 aspect-4/3 w-full shrink-0 overflow-hidden bg-neutral-100 sm:aspect-[5/4]">
         <Image
           src={imageSrc}
           alt={service.title}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className={`object-cover transition-transform duration-500 group-hover:scale-105 ${
+            isPrimary ? "object-top" : ""
+          }`}
           sizes="(max-width: 768px) 100vw, 400px"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
       </div>
 
       <div className="pointer-events-none relative z-1 flex flex-1 flex-col p-5 sm:p-6">
-        {isPrimary && (
-          <p className="mb-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-red-600">
-            Our #1 Specialty
-          </p>
-        )}
-
         <h3 className="mb-2 text-lg font-bold leading-snug text-neutral-900">
           {service.title}
         </h3>

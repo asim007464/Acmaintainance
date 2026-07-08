@@ -128,7 +128,7 @@ export default function ContactPage() {
           <div className="rounded-2xl overflow-hidden border border-neutral-200 h-56 sm:h-72 lg:h-96">
             <iframe
               title="Office Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.178509374!2d55.227!3d25.137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDA4JzEzLjIiTiA1NcKwMTMnMzcuMiJF!5e0!3m2!1sen!2sae!4v1"
+              src="https://www.google.com/maps?q=Hamriya%2C%20Umme%20Hurair%202%2C%20Dubai%2C%20United%20Arab%20Emirates&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}

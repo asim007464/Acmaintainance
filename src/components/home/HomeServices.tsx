@@ -67,7 +67,9 @@ export function HomeServices() {
                   src={HOME_FEATURED_IMAGES[service.id]}
                   alt={service.title}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className={`object-cover transition-transform duration-500 group-hover:scale-105 ${
+                    service.id === "ac-maintenance" ? "object-top" : ""
+                  }`}
                   sizes="(max-width: 768px) 100vw, 400px"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />

@@ -49,22 +49,21 @@ export default function AboutPage() {
 
       <section className="py-14 sm:py-20 lg:py-28 bg-white text-neutral-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-20 items-center">
-            <div>
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 lg:gap-14 items-start">
+            <div className="max-w-3xl">
               <SectionHeading
                 eyebrow="Who We Are"
                 title="Dubai's AC Maintenance Specialists"
                 align="left"
               />
               <p className="text-neutral-600 text-base sm:text-lg leading-relaxed mb-6">
-                AQ AC Experts has been keeping Dubai cool for over
-                a decade. AC maintenance is our core expertise — from split units and
-                central systems to commercial chillers — backed by certified technicians
-                and same-day emergency service.
+                AQ AC Experts has been keeping Dubai cool for over a decade. AC maintenance is our
+                core expertise — from split units and central systems to commercial chillers —
+                backed by certified technicians and same-day emergency service.
               </p>
               <p className="text-neutral-600 leading-relaxed mb-8">
-                Beyond AC, we offer electrical, plumbing, painting, and full property
-                maintenance. One trusted team for everything your home or business needs.
+                Beyond AC, we offer electrical, plumbing, painting, and full property maintenance.
+                One trusted team for everything your home or business needs.
               </p>
               <ul className="space-y-3">
                 {[
@@ -81,19 +80,13 @@ export default function AboutPage() {
               </ul>
             </div>
 
-            <SectionImage
-              src={IMAGES.aboutPage}
-              alt="AC maintenance technician at work in Dubai"
-              aspect="video"
-              priority
-              overlay={
-                <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 lg:right-auto lg:max-w-xs bg-red-600 text-white rounded-2xl px-6 py-5 shadow-2xl">
-                  <p className="text-4xl sm:text-5xl font-bold mb-1">{yearsInBusiness}+</p>
-                  <p className="text-lg font-semibold">Years of Excellence</p>
-                  <p className="text-white/80 text-sm mt-1">Serving Dubai with pride</p>
-                </div>
-              }
-            />
+            <div className="lg:sticky lg:top-28">
+              <div className="bg-red-600 text-white rounded-2xl px-8 py-8 shadow-2xl max-w-xs">
+                <p className="text-5xl font-black leading-none mb-3">{yearsInBusiness}+</p>
+                <p className="text-xl font-bold leading-tight">Years of Excellence</p>
+                <p className="text-white/85 text-sm mt-2">Serving Dubai with pride</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -102,7 +95,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionImage
             src={IMAGES.team}
-            alt="AQ AC Experts team"
+            alt="Certified AQ AC Experts technicians ready to serve Dubai"
             aspect="wide"
             overlay={
               <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent flex items-center">

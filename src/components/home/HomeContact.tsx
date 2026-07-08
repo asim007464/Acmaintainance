@@ -13,7 +13,7 @@ export function HomeContact() {
           <div className="relative rounded-2xl overflow-hidden min-h-[260px] sm:min-h-[340px] lg:min-h-0 lg:aspect-4/5 shadow-xl">
             <Image
               src={IMAGES.contact}
-              alt="Contact our team"
+              alt="Asian support team ready to help customers"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 500px"
