@@ -4,6 +4,8 @@ import { SERVICE_IMAGES } from "@/lib/images";
 import { absoluteUrl } from "@/lib/seo";
 
 const lastModified = new Date();
+const toSitemapImages = (image?: string) =>
+  image && image.startsWith("/") ? [absoluteUrl(image)] : undefined;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
@@ -12,21 +14,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "weekly",
       priority: 1,
-      images: [absoluteUrl("/images/header.png")],
+      images: toSitemapImages("/images/header.png"),
     },
     {
       url: absoluteUrl("/about"),
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
-      images: [absoluteUrl("/images/acmaintiance.png")],
+      images: toSitemapImages("/images/acmaintiance.png"),
     },
     {
       url: absoluteUrl("/services"),
       lastModified,
       changeFrequency: "weekly",
       priority: 0.9,
-      images: [absoluteUrl("/images/acmaintiance.png")],
+      images: toSitemapImages("/images/acmaintiance.png"),
     },
     {
       url: absoluteUrl("/contact"),
@@ -41,11 +43,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified,
     changeFrequency: "monthly",
     priority: 0.7,
-    images: [
-      absoluteUrl(
-        SERVICE_IMAGES[service.slug] ?? SERVICE_IMAGES["hvac-maintenance"],
-      ),
-    ],
+    images: toSitemapImages(
+      SERVICE_IMAGES[service.slug] ?? SERVICE_IMAGES["hvac-maintenance"],
+    ),
   }));
 
   return [...staticPages, ...servicePages];
