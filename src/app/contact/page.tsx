@@ -7,11 +7,20 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SITE } from "@/lib/constants";
 import { IMAGES } from "@/lib/images";
 import { getPhoneLink, getEmailLink, getWhatsAppLink } from "@/lib/utils";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Contact Us",
-  description: `Get in touch with ${SITE.name}. Call ${SITE.phone} or email ${SITE.email}.`,
-};
+  description: `Contact ${SITE.name} for AC maintenance, AC repair, installation quotes, and emergency technical services in Dubai.`,
+  path: "/contact",
+  keywords: [
+    "contact AC repair Dubai",
+    "book AC maintenance Dubai",
+    "AC service quote Dubai",
+    "emergency technician Dubai",
+  ],
+  image: IMAGES.contact,
+});
 
 const contactInfo = [
   {

@@ -217,6 +217,17 @@ export const STATS = [
   { label: "Years of Experience", value: 10, suffix: "+" },
 ];
 
+export const SERVICE_AREAS = [
+  "Dubai Marina",
+  "Jumeirah",
+  "Downtown Dubai",
+  "Business Bay",
+  "Arabian Ranches",
+  "Al Barsha",
+  "Deira",
+  "Bur Dubai",
+] as const;
+
 export const WHY_US = [
   {
     title: "Quality and Safety First",

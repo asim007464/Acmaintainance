@@ -6,11 +6,20 @@ import { SectionImage } from "@/components/ui/SectionImage";
 import { StatsCounter } from "@/components/home/StatsCounter";
 import { STATS, SITE } from "@/lib/constants";
 import { IMAGES } from "@/lib/images";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "About Us",
-  description: `Learn about ${SITE.name} — trusted property maintenance experts in Dubai since ${SITE.founded}.`,
-};
+  description: `Learn about ${SITE.name}, trusted AC maintenance and property maintenance experts in Dubai since ${SITE.founded}.`,
+  path: "/about",
+  keywords: [
+    "about AQ AC Experts",
+    "AC company Dubai",
+    "Dubai technical services company",
+    "property maintenance experts Dubai",
+  ],
+  image: IMAGES.aboutPage,
+});
 
 const values = [
   {

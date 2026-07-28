@@ -3,11 +3,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CheckCircle, MessageCircle, Phone } from "lucide-react";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { PageHero } from "@/components/ui/PageHero";
 import { ServiceIcon } from "@/components/icons/ServiceIcon";
 import { SERVICES, SITE } from "@/lib/constants";
 import { SERVICE_IMAGES } from "@/lib/images";
 import { getServiceWhatsAppLink, getPhoneLink } from "@/lib/utils";
+import {
+  absoluteUrl,
+  buildPageMetadata,
+  buildServiceKeywords,
+  getBreadcrumbSchema,
+  getServiceSchema,
+} from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -22,10 +30,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const service = SERVICES.find((s) => s.slug === slug);
   if (!service) return { title: "Service Not Found" };
 
-  return {
+  return buildPageMetadata({
     title: service.title,
     description: service.description,
-  };
+    path: `/services/${service.slug}`,
+    keywords: buildServiceKeywords(service),
+    image: SERVICE_IMAGES[service.slug] ?? SERVICE_IMAGES["hvac-maintenance"],
+  });
 }
 
 export default async function ServiceDetailPage({ params }: Props) {
@@ -40,6 +51,14 @@ export default async function ServiceDetailPage({ params }: Props) {
 
   return (
     <>
+      <JsonLd data={getServiceSchema(service)} />
+      <JsonLd
+        data={getBreadcrumbSchema([
+          { name: "Home", url: absoluteUrl("/") },
+          { name: "Services", url: absoluteUrl("/services") },
+          { name: service.title, url: absoluteUrl(`/services/${service.slug}`) },
+        ])}
+      />
       <PageHero
         title={service.title}
         description={service.shortDescription}

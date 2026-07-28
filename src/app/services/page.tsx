@@ -3,11 +3,21 @@ import { PageHero } from "@/components/ui/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ServiceCard } from "@/components/services/ServiceCard";
 import { SERVICES, SITE } from "@/lib/constants";
+import { IMAGES } from "@/lib/images";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Our Services",
-  description: `AC maintenance, repair & installation plus full property services from ${SITE.name} in Dubai.`,
-};
+  description: `AC maintenance, AC repair, AC installation, plumbing, electrical, painting, and full property services from ${SITE.name} in Dubai.`,
+  path: "/services",
+  keywords: [
+    "AC services Dubai",
+    "HVAC services Dubai",
+    "property maintenance services Dubai",
+    "technical services company Dubai",
+  ],
+  image: IMAGES.servicesBanner,
+});
 
 export default function ServicesPage() {
   return (
